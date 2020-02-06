@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+	namespace="com.cos.springboot.repository.ProductRepository">
+
+	<select id="findAll" resultType="com.cos.springboot.model.Product">
+		select * from product order by id desc
+	</select>
+
+	<select id="findByType" resultType="com.cos.springboot.model.Product">
+		select * from product where type = #{type}
+	</select>
+	
+	<select id="findByPriceAll" resultType="com.cos.springboot.model.Product">
+		select * from product order by price desc;
+	</select>
+	
+	<select id="findByOrderAll" resultType="com.cos.springboot.model.Product">
+		select * from product order by orderCount desc;
+	</select>
+
+	<select id="findByPrice" resultType="com.cos.springboot.model.Product">
+		select * from product where type = #{type} order by price desc;
+	</select>
+
+	<select id="findByOrder" resultType="com.cos.springboot.model.Product">
+		select * from product where type = #{type} order by orderCount desc
+	</select>
+
+</mapper>
